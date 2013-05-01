@@ -11,7 +11,7 @@ var express = require('express'),
 
 app.get('/stats', function(req, res){
     var stats = {};
-    fs.readdir(__dirname + '/files', function(err, files){
+    fs.readdir('./files', function(err, files){
         when.all(files.map(function(file){
             var d = when.defer();
             db.get(file, function(err, val){
@@ -32,7 +32,7 @@ app.get('/stats', function(req, res){
 });
 
 app.get('/:filename', function(req, res){
-    var filename = __dirname + '/files/' + req.params.filename;
+    var filename = './files/' + req.params.filename;
     fs.exists(filename, function(exists){
         if (!exists){
             return res.send(404);
@@ -54,7 +54,7 @@ app.get('/:filename', function(req, res){
 });
 
 module.exports.start = function(opts){
-    leveldb.open(opts.dbName, {
+    leveldb.open('./' + opts.dbName, {
         create_if_missing: true
     }, function(err, data){
         filesDir = opts.filesDir;
