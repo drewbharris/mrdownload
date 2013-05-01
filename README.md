@@ -11,7 +11,7 @@ Static file download server and counter.
     var dl = require('node-dl');
     dl.start({
       dbName: 'downloads.db',
-      filesDir: 'files',
+      filesDir: '/files',
       port: 8007
     });
     
