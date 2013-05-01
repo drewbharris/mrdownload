@@ -6,7 +6,8 @@ var express = require('express'),
     fs = require('fs'),
     leveldb = require('leveldb'),
     when = require('when'),
-    db;
+    db,
+    filesDir;
 
 app.get('/stats', function(req, res){
     var stats = {};
@@ -52,10 +53,13 @@ app.get('/:filename', function(req, res){
     });
 });
 
-leveldb.open("downloads.db", {
-    create_if_missing: true
+module.exports.start = function(opts){
+    leveldb.open(opts.dbName, {
+        create_if_missing: true
     }, function(err, data){
+        filesDir = opts.filesDir;
         db = data;
-        app.listen(8007);
-        console.log("listening on 8007");
+        app.listen(opts.port);
+        console.log("listening on " + opts.port);
+    });
 });
