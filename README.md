@@ -2,11 +2,15 @@
 
 Static file download server and counter.
 
-### install
+### Install
 
     npm install mrdownload
 
-### usage
+### Usage
+
+Make a directory called "files".  Put some files in there that you'd like to serve.  Run mrdownload with the command below.
+
+Download statistics are served as JSON at /stats.  The files are accessible by filename at /:filename.
 
     var mrdl = require('mrdownload');
     mrdl.start({
