@@ -4,12 +4,12 @@ Static file download server and counter.
 
 ### install
 
-    npm install node-dl
+    npm install mrdownload
 
 ### usage
 
-    var dl = require('node-dl');
-    dl.start({
+    var mrdl = require('mrdownload');
+    mrdl.start({
       dbName: 'downloads.db',
       filesDir: 'files',
       port: 8007
