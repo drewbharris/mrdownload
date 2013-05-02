@@ -1,4 +1,4 @@
-# node-dl
+# mrdownload
 
 Static file download server and counter.
 
