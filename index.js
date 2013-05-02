@@ -62,4 +62,4 @@ module.exports.start = function(opts){
         app.listen(opts.port);
         console.log("listening on " + opts.port);
     });
-});
+}
